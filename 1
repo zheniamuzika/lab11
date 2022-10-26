@@ -1,4 +1,5 @@
 import re
+import csv
 frequency={}
 document_text = open("anglvirsh","r")
 text_string = document_text.read().lower()
@@ -12,3 +13,6 @@ most_frequent = dict(sorted(frequency.items(), key = lambda elem: elem[1], rever
 most_frequent_count = most_frequent.keys()
 for words in most_frequent_count:
     print(words,most_frequent[words])
+    writer = csv.DictWriter("anglvirsh",document_text = document_text)
+    writer.writeheader()
+
